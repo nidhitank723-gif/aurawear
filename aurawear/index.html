@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraWear | Women's Fashion & Clothing Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    End of Season Sale: Flat 30% OFF on all dresses! Use code: <b>AURA30</b> | Free Shipping over Rs. 999
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <span class="logo-aura">Aura</span><span class="logo-wear">Wear</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Collection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search dresses, tops, kurtis..." onkeyup="filterProducts()">
+          <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg class="cart-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Cart (<span id="cartCount">0</span>)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-section" id="home">
+    <div class="hero-content">
+      <span class="badge">Spring / Summer Collection</span>
+      <h1>Elegance In Every Stitch</h1>
+      <p>Discover chic western wear, graceful ethnic kurtis, breezy summer dresses and timeless everyday outfits tailored for the modern woman.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">Shop Collection</a>
+        <a href="#categories" class="btn btn-secondary">Explore Categories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section-container" id="categories">
+    <div class="section-header">
+      <h2>Shop By Category</h2>
+      <p>Handcrafted collections designed to empower your everyday look</p>
+    </div>
+
+    <div class="categories-grid" id="categoriesGrid">
+      <!-- Dynamic Categories Loaded by JS -->
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section-container" id="products">
+    <div class="section-header">
+      <h2>Featured Collection</h2>
+      <p>Explore our bestsellers, new arrivals and trending styles</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="setCategoryFilter('all', this)">All Outfits</button>
+      <button class="filter-btn" onclick="setCategoryFilter('dresses', this)">Dresses</button>
+      <button class="filter-btn" onclick="setCategoryFilter('tops', this)">Tops & Tees</button>
+      <button class="filter-btn" onclick="setCategoryFilter('ethnic', this)">Ethnic & Kurtis</button>
+      <button class="filter-btn" onclick="setCategoryFilter('bottoms', this)">Jeans & Pants</button>
+      <button class="filter-btn" onclick="setCategoryFilter('coord', this)">Co-ord Sets</button>
+    </div>
+
+    <!-- Product Cards Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Dynamic Products Loaded by JS -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="About AuraWear">
+      </div>
+      <div class="about-text">
+        <span class="badge">Our Philosophy</span>
+        <h2>Fashion That Celebrates You</h2>
+        <p>AuraWear is dedicated to creating high quality, sustainable, and affordable women's fashion. Every fabric is selected with care, balancing breathable comfort with modern aesthetic trends.</p>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-bullet"></div>
+            <div>
+              <h4>100% Breathable Fabrics</h4>
+              <p>Pure cotton, linen and gentle georgette safe for skin.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-bullet"></div>
+            <div>
+              <h4>Crafted With Love</h4>
+              <p>Tailored silhouettes designed to fit diverse Indian body types.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-bullet"></div>
+            <div>
+              <h4>Easy 7-Day Exchange</h4>
+              <p>Hassle-free doorstep returns and sizing exchanges.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Newsletter Section -->
+  <section class="section-container" id="contact">
+    <div class="contact-card">
+      <h2>Stay Connected With Us</h2>
+      <p>Subscribe to receive exclusive discounts, new arrival previews & seasonal style advice.</p>
+      <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+        <input type="email" id="emailInput" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <div class="contact-details">
+        <span>Mumbai, Maharashtra, India</span> • 
+        <span>support@aurawear.com</span> • 
+        <span>+91 98765 43210</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-aura">Aura</span><span class="logo-wear">Wear</span>
+        <p>Bringing elegance, quality, and timeless charm to women's wardrobe across the country.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Collections</a>
+        <a href="#about">About AuraWear</a>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Help</h4>
+        <a href="#contact">Contact Support</a>
+        <a href="#contact">Track Order</a>
+        <a href="#contact">Shipping Policy</a>
+        <a href="#contact">Returns & Exchanges</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AuraWear. Designed & Developed with ❤️ by <b>Nidhi</b>. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Shopping Bag (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="close-btn" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items injected by JS -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Subtotal:</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <p class="shipping-note">Taxes & Shipping calculated at checkout</p>
+      <button class="btn btn-primary btn-block" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Product Quick View Modal -->
+  <div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      <div class="modal-body" id="modalDetails">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
